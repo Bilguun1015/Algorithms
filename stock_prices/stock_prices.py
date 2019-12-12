@@ -10,7 +10,6 @@ def find_max_profit(prices):
       profit = price - current_min_price_so_far
     if price < current_min_price_so_far:
       current_min_price_so_far = price
-
   return profit
 
 print(find_max_profit([6,5,1,5,8,9,3,8,1]))

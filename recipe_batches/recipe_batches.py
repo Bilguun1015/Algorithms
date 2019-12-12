@@ -3,10 +3,14 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  ratio = False
+  ratio = 0
+  first = True
   for ingredient, amount in recipe.items():
     new_ratio = ingredients.get(ingredient, 0) // amount
-    if not ratio or new_ratio < ratio:
+    if first:
+      ratio = new_ratio
+      first = False
+    elif new_ratio < ratio:
       ratio = new_ratio
   return ratio
 
