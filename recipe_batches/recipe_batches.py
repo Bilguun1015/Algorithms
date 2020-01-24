@@ -3,8 +3,16 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
-
+  ratio = 0
+  first = True
+  for ingredient, amount in recipe.items():
+    new_ratio = ingredients.get(ingredient, 0) // amount
+    if first:
+      ratio = new_ratio
+      first = False
+    elif new_ratio < ratio:
+      ratio = new_ratio
+  return ratio
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
